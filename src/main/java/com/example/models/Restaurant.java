@@ -4,7 +4,8 @@ import java.util.List;
 
 public class Restaurant {
     private String name;
-    private String direction;
+    private String phone;
+    private String adress;
     private Integer available;
     private Menu menu;
     private List<Review> reviews;
@@ -13,13 +14,30 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(String name, String direction, Integer available, Menu menu, List<Review> reviews, Double raiting) {
+    public Restaurant(String name, String phone, String adress, Integer available, Menu menu, List<Review> reviews, Double raiting) {
         this.name = name;
-        this.direction = direction;
+        this.phone = phone;
+        this.adress = adress;
         this.available = available;
         this.menu = menu;
         this.reviews = reviews;
         this.raiting = raiting;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
     public String getName() {
@@ -31,11 +49,11 @@ public class Restaurant {
     }
 
     public String getDirection() {
-        return direction;
+        return adress;
     }
 
     public void setDirection(String direction) {
-        this.direction = direction;
+        this.adress = direction;
     }
 
     public Integer getAvailable() {

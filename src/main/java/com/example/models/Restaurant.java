@@ -91,4 +91,8 @@ public class Restaurant {
     public String getAddress() {
         return adress;
     }
+
+    public void setAddress(String address) {
+        this.adress = address;
+    }
 }

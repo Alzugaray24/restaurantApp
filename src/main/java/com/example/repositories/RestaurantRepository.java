@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RestaurantRepository {
     private static RestaurantRepository instance;
-    private List<Restaurant> restaurants;
+    private final List<Restaurant> restaurants;
 
     private RestaurantRepository() {
         restaurants = new LinkedList<>();
@@ -39,6 +39,15 @@ public class RestaurantRepository {
                 break;
             }
         }
+    }
+
+    public Restaurant findByName(String name) {
+        for (Restaurant restaurant : restaurants) {
+            if (restaurant.getName().equals(name)) {
+                return restaurant;
+            }
+        }
+        return null;
     }
 
 }

@@ -17,6 +17,16 @@ public class RestaurantDTO {
         this.available = available;
     }
 
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", available=" + available +
+                '}';
+    }
+
     public String getName() {
         return name;
     }

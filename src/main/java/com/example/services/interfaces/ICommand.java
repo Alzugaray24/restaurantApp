@@ -1,5 +1,5 @@
 package com.example.services.interfaces;
 
-public interface ICommand<T, R> {
-    R execute(T input);
+public interface ICommand<T> {
+    T execute();
 }

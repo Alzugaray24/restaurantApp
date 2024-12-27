@@ -87,4 +87,8 @@ public class Restaurant {
     public void setRaiting(Double raiting) {
         this.raiting = raiting;
     }
+
+    public String getAddress() {
+        return adress;
+    }
 }

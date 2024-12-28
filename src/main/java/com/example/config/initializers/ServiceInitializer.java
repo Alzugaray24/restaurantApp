@@ -4,6 +4,7 @@ import com.example.repositories.MenuRepository;
 import com.example.repositories.RestaurantRepository;
 import com.example.services.menu.AddDishToMenuService;
 import com.example.services.menu.RemoveDishFromMenuService;
+import com.example.services.menu.UpdateDishFromMenuService;
 import com.example.services.restaurant.AddRestaurantService;
 import com.example.services.restaurant.RemoveRestaurantService;
 import com.example.services.restaurant.ShowRestaurantService;
@@ -17,6 +18,7 @@ public class ServiceInitializer {
     public final UpdateRestaurantService updateRestaurantService;
     public final AddDishToMenuService addDishToMenuService;
     public final RemoveDishFromMenuService removeDishFromMenuService;
+    public final UpdateDishFromMenuService updateDishFromMenuService;
 
     public ServiceInitializer() {
         this.restaurantRepository = RestaurantRepository.getInstance();
@@ -27,6 +29,7 @@ public class ServiceInitializer {
         this.updateRestaurantService = new UpdateRestaurantService(restaurantRepository);
         this.addDishToMenuService = new AddDishToMenuService(menuRepository);
         this.removeDishFromMenuService = new RemoveDishFromMenuService(menuRepository);
+        this.updateDishFromMenuService = new UpdateDishFromMenuService(menuRepository);
     }
 
     public RestaurantRepository getRestaurantRepository() {

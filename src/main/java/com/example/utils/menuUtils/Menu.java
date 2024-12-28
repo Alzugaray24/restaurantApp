@@ -2,6 +2,7 @@ package com.example.utils.menuUtils;
 
 import com.example.controllers.menu.AddDishToMenuController;
 import com.example.controllers.menu.RemoveDishFromMenuController;
+import com.example.controllers.menu.UpdateDishFromMenuController;
 import com.example.controllers.restaurant.AddRestaurantController;
 import com.example.controllers.restaurant.RemoveRestaurantController;
 import com.example.controllers.restaurant.ShowRestaurantsController;
@@ -15,15 +16,17 @@ public class Menu {
     private final UpdateRestaurantController updateRestaurantController;
     private final AddDishToMenuController addDishToMenuController;
     private final RemoveDishFromMenuController removeDishFromMenuController;
+    private final UpdateDishFromMenuController updateDishFromMenuController;
     private final ConsoleUtils console;
 
-    public Menu(AddRestaurantController addRestaurantController, RemoveRestaurantController removeRestaurantController, ShowRestaurantsController showRestaurantsController, UpdateRestaurantController updateRestaurantController, AddDishToMenuController addDishToMenuController, RemoveDishFromMenuController removeDishFromMenuController, ConsoleUtils console) {
+    public Menu(AddRestaurantController addRestaurantController, RemoveRestaurantController removeRestaurantController, ShowRestaurantsController showRestaurantsController, UpdateRestaurantController updateRestaurantController, AddDishToMenuController addDishToMenuController, RemoveDishFromMenuController removeDishFromMenuController, UpdateDishFromMenuController updateDishFromMenuController, ConsoleUtils console) {
         this.addRestaurantController = addRestaurantController;
         this.removeRestaurantController = removeRestaurantController;
         this.showRestaurantsController = showRestaurantsController;
         this.updateRestaurantController = updateRestaurantController;
         this.addDishToMenuController = addDishToMenuController;
         this.removeDishFromMenuController = removeDishFromMenuController;
+        this.updateDishFromMenuController = updateDishFromMenuController;
         this.console = console;
     }
 
@@ -55,10 +58,12 @@ public class Menu {
         System.out.println("Opciones del Menú:");
         System.out.println("1. Agregar Plato");
         System.out.println("2. Eliminar Plato");
+        System.out.println("3. Actualizar Plato");
         int menuChoice = console.getInteger("Elige una opción: ");
         switch (menuChoice) {
             case 1 -> addDishToMenuController.addDishToMenu();
             case 2 -> removeDishFromMenuController.removeDishFromMenu();
+            case 3 -> updateDishFromMenuController.updateDishFromMenu();
             default -> System.out.println("Opción no válida.");
         }
     }

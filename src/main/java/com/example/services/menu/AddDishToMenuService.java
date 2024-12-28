@@ -6,14 +6,15 @@ import com.example.models.Restaurant;
 import com.example.repositories.MenuRepository;
 import com.example.services.interfaces.ICommand;
 
-public class AddDishToMenuService implements ICommand<Menu> {
+import java.util.LinkedList;
 
-    private final MenuRepository repository;
+public class AddDishToMenuService implements ICommand<Void> {
+    private final MenuRepository menuRepository;
     private Restaurant restaurant;
     private Dish dish;
 
-    public AddDishToMenuService(MenuRepository repository) {
-        this.repository = repository;
+    public AddDishToMenuService(MenuRepository menuRepository) {
+        this.menuRepository = menuRepository;
     }
 
     public void setRestaurant(Restaurant restaurant) {
@@ -25,11 +26,29 @@ public class AddDishToMenuService implements ICommand<Menu> {
     }
 
     @Override
-    public Menu execute() {
+    public Void execute() {
+        validateInputs();
+        Menu menu = getOrCreateMenu();
+        addDishToMenu(menu);
+        return null;
+    }
+
+    private void validateInputs() {
         if (restaurant == null || dish == null) {
             throw new IllegalStateException("El restaurante y el plato no pueden ser nulos");
         }
-        repository.addDishToMenu(restaurant, dish);
-        return repository.getMenuByRestaurant(restaurant);
+    }
+
+    private Menu getOrCreateMenu() {
+        Menu menu = menuRepository.getMenuByRestaurant(restaurant);
+        if (menu == null) {
+            menu = new Menu(restaurant, new LinkedList<>());
+            restaurant.setMenu(menu);
+        }
+        return menu;
+    }
+
+    private void addDishToMenu(Menu menu) {
+        menuRepository.addDishToMenu(restaurant, dish);
     }
 }

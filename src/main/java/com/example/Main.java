@@ -17,6 +17,7 @@ public class Main {
                 controllerInitializer.showRestaurantsController,
                 controllerInitializer.updateRestaurantController,
                 controllerInitializer.addDishToMenuController,
+                controllerInitializer.removeDishFromMenuController,
                 console
         );
 

@@ -1,6 +1,7 @@
 package com.example.config.initializers;
 
 import com.example.controllers.menu.AddDishToMenuController;
+import com.example.controllers.menu.RemoveDishFromMenuController;
 import com.example.controllers.restaurant.AddRestaurantController;
 import com.example.controllers.restaurant.RemoveRestaurantController;
 import com.example.controllers.restaurant.ShowRestaurantsController;
@@ -13,6 +14,7 @@ public class ControllerInitializer {
     public final ShowRestaurantsController showRestaurantsController;
     public final UpdateRestaurantController updateRestaurantController;
     public final AddDishToMenuController addDishToMenuController;
+    public final RemoveDishFromMenuController removeDishFromMenuController;
 
     public ControllerInitializer(ServiceInitializer serviceInitializer, ConsoleUtils console) {
         this.addRestaurantController = new AddRestaurantController(serviceInitializer.addRestaurantService, console);
@@ -20,5 +22,6 @@ public class ControllerInitializer {
         this.showRestaurantsController = new ShowRestaurantsController(serviceInitializer.showRestaurantService, console);
         this.updateRestaurantController = new UpdateRestaurantController(serviceInitializer.updateRestaurantService, console);
         this.addDishToMenuController = new AddDishToMenuController(serviceInitializer.addDishToMenuService, console, serviceInitializer.getRestaurantRepository());
+        this.removeDishFromMenuController = new RemoveDishFromMenuController(serviceInitializer.removeDishFromMenuService, console, serviceInitializer.getRestaurantRepository());
     }
 }

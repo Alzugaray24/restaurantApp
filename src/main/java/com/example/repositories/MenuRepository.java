@@ -28,12 +28,9 @@ public class MenuRepository {
     }
 
     public void addDishToMenu(Restaurant restaurant, Dish dish) {
-        Menu menu = menus.get(restaurant);
-        if (menu == null) {
-            menu = new Menu(restaurant, new LinkedList<>());
-            menus.put(restaurant, menu);
-        }
+        Menu menu = menus.computeIfAbsent(restaurant, r -> new Menu(r, new LinkedList<>()));
         menu.getDishes().add(dish);
+        restaurant.setMenu(menu);
     }
 
     public void removeDishFromMenu(Restaurant restaurant, Dish dish) {

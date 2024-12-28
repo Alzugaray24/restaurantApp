@@ -15,6 +15,14 @@ public class Menu {
         this.dishes = dishes;
     }
 
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "restaurant=" + restaurant +
+                ", dishes=" + dishes +
+                '}';
+    }
+
     public Restaurant getRestaurant() {
         return restaurant;
     }

@@ -1,6 +1,6 @@
 package com.example.controllers.restaurant;
 
-import com.example.dtos.RestaurantDTO;
+import com.example.models.Restaurant;
 import com.example.services.restaurant.UpdateRestaurantService;
 import com.example.utils.consoleUtils.ConsoleUtils;
 
@@ -21,12 +21,21 @@ public class UpdateRestaurantController {
             }
 
             String name = console.getString("Ingrese el nombre del restaurante a actualizar: ");
+            Restaurant restaurant = updateRestaurantService.findByName(name);
+            if (restaurant == null) {
+                System.out.println("Restaurante no encontrado.");
+                return;
+            }
+
             String phone = console.getString("Ingrese el nuevo teléfono: ");
             String address = console.getString("Ingrese la nueva dirección: ");
             Integer available = console.getInteger("Ingrese la nueva disponibilidad: ");
 
-            RestaurantDTO restaurantDTO = new RestaurantDTO(name, phone, address, available);
-            updateRestaurantService.setRestaurantDTO(restaurantDTO);
+            restaurant.setPhone(phone);
+            restaurant.setAddress(address);
+            restaurant.setAvailable(available);
+
+            updateRestaurantService.setRestaurant(restaurant);
             updateRestaurantService.execute();
 
             System.out.println("Restaurante actualizado exitosamente.");

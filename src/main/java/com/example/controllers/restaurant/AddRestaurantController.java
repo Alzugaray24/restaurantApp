@@ -1,7 +1,5 @@
-// src/main/java/com/example/controllers/RestaurantController.java
 package com.example.controllers.restaurant;
 
-import com.example.dtos.RestaurantDTO;
 import com.example.models.Restaurant;
 import com.example.services.restaurant.AddRestaurantService;
 import com.example.utils.consoleUtils.ConsoleUtils;
@@ -22,13 +20,12 @@ public class AddRestaurantController {
             String address = console.getString("Entra la dirección del restaurante: ");
             Integer available = console.getInteger("Entra la disponibilidad del restaurante: ");
 
-            RestaurantDTO restaurantDTO = new RestaurantDTO(name, phone, address, available);
-            addRestaurantService.setRestaurantDTO(restaurantDTO);
-            Restaurant restaurant = addRestaurantService.execute();
+            Restaurant restaurant = new Restaurant(name, phone, address, available, null, null, 0.0);
+            addRestaurantService.setRestaurant(restaurant);
+            addRestaurantService.execute();
             System.out.println("Restaurante agregado: " + restaurant.getName());
         } catch (Exception e) {
             System.out.println("Error al agregar el restaurante: " + e.getMessage());
         }
     }
-
 }

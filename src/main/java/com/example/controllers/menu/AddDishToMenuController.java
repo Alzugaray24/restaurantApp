@@ -1,7 +1,6 @@
 package com.example.controllers.menu;
 
 import com.example.models.Dish;
-import com.example.models.Menu;
 import com.example.models.Restaurant;
 import com.example.repositories.RestaurantRepository;
 import com.example.services.menu.AddDishToMenuService;
@@ -36,9 +35,9 @@ public class AddDishToMenuController {
 
             addDishToMenuService.setRestaurant(restaurant);
             addDishToMenuService.setDish(dish);
-            Menu updatedMenu = addDishToMenuService.execute();
+            addDishToMenuService.execute();
 
-            System.out.println("Plato agregado al menú: " + updatedMenu.getDishes());
+            System.out.println("Plato agregado al menú: ");
         } catch (Exception e) {
             System.out.println("Error al agregar el plato al menú: " + e.getMessage());
         }

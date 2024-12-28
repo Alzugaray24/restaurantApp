@@ -1,15 +1,16 @@
 package com.example.models;
 
-import java.util.List;
+import java.util.LinkedList;
 
 public class Menu {
     private Restaurant restaurant;
-    private List<Dish> dishes;
+    private LinkedList<Dish> dishes;
 
     public Menu() {
+        this.dishes = new LinkedList<>();
     }
 
-    public Menu(Restaurant restaurant, List<Dish> dishes) {
+    public Menu(Restaurant restaurant, LinkedList<Dish> dishes) {
         this.restaurant = restaurant;
         this.dishes = dishes;
     }
@@ -22,11 +23,11 @@ public class Menu {
         this.restaurant = restaurant;
     }
 
-    public List<Dish> getDishes() {
+    public LinkedList<Dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(List<Dish> dishes) {
+    public void setDishes(LinkedList<Dish> dishes) {
         this.dishes = dishes;
     }
 }

@@ -1,10 +1,14 @@
-// src/main/java/com/example/services/restaurant/AddRestaurantService.java
 package com.example.services.restaurant;
 
 import com.example.dtos.RestaurantDTO;
+import com.example.models.Menu;
 import com.example.models.Restaurant;
+import com.example.models.Review;
 import com.example.repositories.RestaurantRepository;
 import com.example.services.interfaces.ICommand;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddRestaurantService implements ICommand<Restaurant> {
 
@@ -22,7 +26,7 @@ public class AddRestaurantService implements ICommand<Restaurant> {
     @Override
     public Restaurant execute() {
         if (restaurantDTO == null) {
-            throw new IllegalStateException("Los datos del restaurante no pueden ser nulos");
+            throw new IllegalStateException("Restaurant data cannot be null");
         }
         Restaurant restaurant = new Restaurant(
                 restaurantDTO.getName(),

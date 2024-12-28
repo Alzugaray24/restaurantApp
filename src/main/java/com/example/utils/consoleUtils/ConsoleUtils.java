@@ -25,4 +25,15 @@ public class ConsoleUtils {
         System.out.print(prompt);
         return scanner.nextLine();
     }
+
+    public double getDouble(String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                return Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada no válida. Por favor, ingrese un número decimal.");
+            }
+        }
+    }
 }

@@ -1,4 +1,3 @@
-// src/main/java/com/example/config/initializers/ControllerInitializer.java
 package com.example.config.initializers;
 
 import com.example.controllers.menu.AddDishToMenuController;
@@ -8,6 +7,9 @@ import com.example.controllers.restaurant.AddRestaurantController;
 import com.example.controllers.restaurant.RemoveRestaurantController;
 import com.example.controllers.restaurant.ShowRestaurantsController;
 import com.example.controllers.restaurant.UpdateRestaurantController;
+import com.example.controllers.review.AddReviewController;
+import com.example.controllers.review.ListReviewController;
+import com.example.controllers.review.CalculateAverageRatingController;
 import com.example.utils.consoleUtils.ConsoleUtils;
 
 public class ControllerInitializer {
@@ -18,6 +20,9 @@ public class ControllerInitializer {
     public final AddDishToMenuController addDishToMenuController;
     public final RemoveDishFromMenuController removeDishFromMenuController;
     public final UpdateDishFromMenuController updateDishFromMenuController;
+    public final AddReviewController addReviewController;
+    public final ListReviewController listReviewController;
+    public final CalculateAverageRatingController calculateAverageRatingController;
 
     public ControllerInitializer(ServiceInitializer serviceInitializer, ConsoleUtils console) {
         this.addRestaurantController = new AddRestaurantController(serviceInitializer.addRestaurantService, console);
@@ -27,5 +32,8 @@ public class ControllerInitializer {
         this.addDishToMenuController = new AddDishToMenuController(serviceInitializer.addDishToMenuService, console, serviceInitializer.getRestaurantRepository());
         this.removeDishFromMenuController = new RemoveDishFromMenuController(serviceInitializer.removeDishFromMenuService, console, serviceInitializer.getRestaurantRepository());
         this.updateDishFromMenuController = new UpdateDishFromMenuController(serviceInitializer.updateDishFromMenuService, console, serviceInitializer.getRestaurantRepository());
+        this.addReviewController = new AddReviewController(console, serviceInitializer.addReviewService);
+        this.listReviewController = new ListReviewController(console, serviceInitializer.listReviewService);
+        this.calculateAverageRatingController = new CalculateAverageRatingController(console, serviceInitializer.calculateAverageRatingService);
     }
 }

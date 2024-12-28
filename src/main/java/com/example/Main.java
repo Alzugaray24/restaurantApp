@@ -12,13 +12,23 @@ public class Main {
         ControllerInitializer controllerInitializer = new ControllerInitializer(serviceInitializer, console);
 
         Menu menu = new Menu(
+                // Controlador Restaurante
                 controllerInitializer.addRestaurantController,
                 controllerInitializer.removeRestaurantController,
                 controllerInitializer.showRestaurantsController,
                 controllerInitializer.updateRestaurantController,
+
+                // Controlador Menú
                 controllerInitializer.addDishToMenuController,
                 controllerInitializer.removeDishFromMenuController,
                 controllerInitializer.updateDishFromMenuController,
+
+                // Controlador Reseñas
+                controllerInitializer.addReviewController,
+                controllerInitializer.listReviewController,
+                controllerInitializer.calculateAverageRatingController,
+
+                // Consola
                 console
         );
 

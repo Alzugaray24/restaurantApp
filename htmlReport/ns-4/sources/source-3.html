@@ -1,0 +1,182 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ShowRestaurantsController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.controllers.restaurant</a>
+</div>
+
+<h1>Coverage Summary for Class: ShowRestaurantsController (com.example.controllers.restaurant)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ShowRestaurantsController</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/29)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.controllers.restaurant;
+&nbsp;
+&nbsp;import com.example.models.Dish;
+&nbsp;import com.example.models.Restaurant;
+&nbsp;import com.example.services.restaurant.ShowRestaurantService;
+&nbsp;import com.example.utils.consoleUtils.ConsoleUtils;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public class ShowRestaurantsController {
+&nbsp;    private final ShowRestaurantService showRestaurantService;
+&nbsp;
+<b class="nc">&nbsp;    public ShowRestaurantsController(ShowRestaurantService showRestaurantService, ConsoleUtils console) {</b>
+<b class="nc">&nbsp;        this.showRestaurantService = showRestaurantService;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void showRestaurants() {
+&nbsp;        try {
+<b class="nc">&nbsp;            List&lt;Restaurant&gt; restaurants = showRestaurantService.execute();</b>
+<b class="nc">&nbsp;            if (restaurants.isEmpty()) {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;No hay restaurantes disponibles.&quot;);</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                System.out.println(&quot;Lista de restaurantes:&quot;);</b>
+<b class="nc">&nbsp;                StringBuilder sb = new StringBuilder();</b>
+<b class="nc">&nbsp;                for (Restaurant restaurant : restaurants) {</b>
+<b class="nc">&nbsp;                    printRestaurantDetails(sb, restaurant);</b>
+&nbsp;                }
+<b class="nc">&nbsp;                System.out.println(sb.toString());</b>
+&nbsp;            }
+&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;            System.out.println(&quot;Error al mostrar los restaurantes: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void printRestaurantDetails(StringBuilder sb, Restaurant restaurant) {
+<b class="nc">&nbsp;        sb.append(&quot;Nombre: &quot;).append(restaurant.getName()).append(&quot;\n&quot;);</b>
+<b class="nc">&nbsp;        sb.append(&quot;Teléfono: &quot;).append(restaurant.getPhone()).append(&quot;\n&quot;);</b>
+<b class="nc">&nbsp;        sb.append(&quot;Dirección: &quot;).append(restaurant.getAddress()).append(&quot;\n&quot;);</b>
+<b class="nc">&nbsp;        sb.append(&quot;Disponibilidad: &quot;).append(restaurant.getAvailable()).append(&quot;\n&quot;);</b>
+<b class="nc">&nbsp;        printMenuDetails(sb, restaurant);</b>
+<b class="nc">&nbsp;        printReviewDetails(sb, restaurant);</b>
+<b class="nc">&nbsp;        sb.append(&quot;Calificación: &quot;).append(restaurant.getRaiting()).append(&quot;\n&quot;);</b>
+<b class="nc">&nbsp;        sb.append(&quot;-----------------------------\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void printMenuDetails(StringBuilder sb, Restaurant restaurant) {
+<b class="nc">&nbsp;        if (restaurant.getMenu() == null) {</b>
+<b class="nc">&nbsp;            sb.append(&quot;Menú: No disponible\n&quot;);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            sb.append(&quot;Menú: &quot;).append(restaurant.getMenu().getDishes().size()).append(&quot; platos\n&quot;);</b>
+<b class="nc">&nbsp;            for (Dish dish : restaurant.getMenu().getDishes()) {</b>
+<b class="nc">&nbsp;                sb.append(&quot;  - Plato: &quot;).append(dish.getName())</b>
+<b class="nc">&nbsp;                        .append(&quot;, Descripción: &quot;).append(dish.getDescription())</b>
+<b class="nc">&nbsp;                        .append(&quot;, Precio: &quot;).append(dish.getPrice()).append(&quot;\n&quot;);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void printReviewDetails(StringBuilder sb, Restaurant restaurant) {
+<b class="nc">&nbsp;        if (restaurant.getReviews() == null || restaurant.getReviews().isEmpty()) {</b>
+<b class="nc">&nbsp;            sb.append(&quot;Reseñas: No disponibles\n&quot;);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            sb.append(&quot;Reseñas: &quot;).append(restaurant.getReviews().size()).append(&quot; reseñas\n&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-30 13:15</div>
+</div>
+</body>
+</html>

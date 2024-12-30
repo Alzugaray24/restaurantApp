@@ -1,0 +1,143 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ControllerInitializer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.config.initializers</a>
+</div>
+
+<h1>Coverage Summary for Class: ControllerInitializer (com.example.config.initializers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ControllerInitializer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.config.initializers;
+&nbsp;
+&nbsp;import com.example.controllers.menu.AddDishToMenuController;
+&nbsp;import com.example.controllers.menu.RemoveDishFromMenuController;
+&nbsp;import com.example.controllers.menu.UpdateDishFromMenuController;
+&nbsp;import com.example.controllers.restaurant.AddRestaurantController;
+&nbsp;import com.example.controllers.restaurant.RemoveRestaurantController;
+&nbsp;import com.example.controllers.restaurant.ShowRestaurantsController;
+&nbsp;import com.example.controllers.restaurant.UpdateRestaurantController;
+&nbsp;import com.example.controllers.review.AddReviewController;
+&nbsp;import com.example.controllers.review.ListReviewController;
+&nbsp;import com.example.controllers.review.CalculateAverageRatingController;
+&nbsp;import com.example.utils.consoleUtils.ConsoleUtils;
+&nbsp;
+&nbsp;public class ControllerInitializer {
+&nbsp;    public final AddRestaurantController addRestaurantController;
+&nbsp;    public final RemoveRestaurantController removeRestaurantController;
+&nbsp;    public final ShowRestaurantsController showRestaurantsController;
+&nbsp;    public final UpdateRestaurantController updateRestaurantController;
+&nbsp;    public final AddDishToMenuController addDishToMenuController;
+&nbsp;    public final RemoveDishFromMenuController removeDishFromMenuController;
+&nbsp;    public final UpdateDishFromMenuController updateDishFromMenuController;
+&nbsp;    public final AddReviewController addReviewController;
+&nbsp;    public final ListReviewController listReviewController;
+&nbsp;    public final CalculateAverageRatingController calculateAverageRatingController;
+&nbsp;
+<b class="nc">&nbsp;    public ControllerInitializer(ServiceInitializer serviceInitializer, ConsoleUtils console) {</b>
+<b class="nc">&nbsp;        this.addRestaurantController = new AddRestaurantController(serviceInitializer.addRestaurantService, console);</b>
+<b class="nc">&nbsp;        this.removeRestaurantController = new RemoveRestaurantController(serviceInitializer.removeRestaurantService, console);</b>
+<b class="nc">&nbsp;        this.showRestaurantsController = new ShowRestaurantsController(serviceInitializer.showRestaurantService, console);</b>
+<b class="nc">&nbsp;        this.updateRestaurantController = new UpdateRestaurantController(serviceInitializer.updateRestaurantService, console);</b>
+<b class="nc">&nbsp;        this.addDishToMenuController = new AddDishToMenuController(serviceInitializer.addDishToMenuService, console, serviceInitializer.getRestaurantRepository());</b>
+<b class="nc">&nbsp;        this.removeDishFromMenuController = new RemoveDishFromMenuController(serviceInitializer.removeDishFromMenuService, console, serviceInitializer.getRestaurantRepository());</b>
+<b class="nc">&nbsp;        this.updateDishFromMenuController = new UpdateDishFromMenuController(serviceInitializer.updateDishFromMenuService, console, serviceInitializer.getRestaurantRepository());</b>
+<b class="nc">&nbsp;        this.addReviewController = new AddReviewController(console, serviceInitializer.addReviewService);</b>
+<b class="nc">&nbsp;        this.listReviewController = new ListReviewController(console, serviceInitializer.listReviewService);</b>
+<b class="nc">&nbsp;        this.calculateAverageRatingController = new CalculateAverageRatingController(console, serviceInitializer.calculateAverageRatingService);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-30 13:15</div>
+</div>
+</body>
+</html>

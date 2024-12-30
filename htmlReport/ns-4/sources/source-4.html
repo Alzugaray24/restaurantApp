@@ -1,0 +1,162 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > UpdateRestaurantController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.controllers.restaurant</a>
+</div>
+
+<h1>Coverage Summary for Class: UpdateRestaurantController (com.example.controllers.restaurant)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UpdateRestaurantController</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.controllers.restaurant;
+&nbsp;
+&nbsp;import com.example.models.Restaurant;
+&nbsp;import com.example.services.restaurant.UpdateRestaurantService;
+&nbsp;import com.example.utils.consoleUtils.ConsoleUtils;
+&nbsp;
+&nbsp;public class UpdateRestaurantController {
+&nbsp;    private final UpdateRestaurantService updateRestaurantService;
+&nbsp;    private final ConsoleUtils console;
+&nbsp;
+<b class="nc">&nbsp;    public UpdateRestaurantController(UpdateRestaurantService updateRestaurantService, ConsoleUtils console) {</b>
+<b class="nc">&nbsp;        this.updateRestaurantService = updateRestaurantService;</b>
+<b class="nc">&nbsp;        this.console = console;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void updateRestaurant() {
+&nbsp;        try {
+<b class="nc">&nbsp;            if (updateRestaurantService.getRepository().getRestaurants().isEmpty()) {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;No hay restaurantes disponibles para actualizar.&quot;);</b>
+&nbsp;                return;
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            String name = console.getString(&quot;Ingrese el nombre del restaurante a actualizar: &quot;);</b>
+<b class="nc">&nbsp;            Restaurant restaurant = updateRestaurantService.findByName(name);</b>
+<b class="nc">&nbsp;            if (restaurant == null) {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;Restaurante no encontrado.&quot;);</b>
+&nbsp;                return;
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            String phone = console.getString(&quot;Ingrese el nuevo teléfono: &quot;);</b>
+<b class="nc">&nbsp;            String address = console.getString(&quot;Ingrese la nueva dirección: &quot;);</b>
+<b class="nc">&nbsp;            Integer available = console.getInteger(&quot;Ingrese la nueva disponibilidad: &quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;            restaurant.setPhone(phone);</b>
+<b class="nc">&nbsp;            restaurant.setAddress(address);</b>
+<b class="nc">&nbsp;            restaurant.setAvailable(available);</b>
+&nbsp;
+<b class="nc">&nbsp;            updateRestaurantService.setRestaurant(restaurant);</b>
+<b class="nc">&nbsp;            updateRestaurantService.execute();</b>
+&nbsp;
+<b class="nc">&nbsp;            System.out.println(&quot;Restaurante actualizado exitosamente.&quot;);</b>
+&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;            System.out.println(&quot;Error al actualizar el restaurante: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-30 13:15</div>
+</div>
+</body>
+</html>

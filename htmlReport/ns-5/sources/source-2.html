@@ -1,0 +1,138 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > CalculateAverageRatingController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.controllers.review</a>
+</div>
+
+<h1>Coverage Summary for Class: CalculateAverageRatingController (com.example.controllers.review)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CalculateAverageRatingController</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.controllers.review;
+&nbsp;
+&nbsp;import com.example.services.review.CalculateAverageRatingService;
+&nbsp;import com.example.utils.consoleUtils.ConsoleUtils;
+&nbsp;
+&nbsp;public class CalculateAverageRatingController {
+&nbsp;    private final ConsoleUtils console;
+&nbsp;    private final CalculateAverageRatingService calculateAverageRatingService;
+&nbsp;
+<b class="nc">&nbsp;    public CalculateAverageRatingController(ConsoleUtils console, CalculateAverageRatingService calculateAverageRatingService) {</b>
+<b class="nc">&nbsp;        this.console = console;</b>
+<b class="nc">&nbsp;        this.calculateAverageRatingService = calculateAverageRatingService;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void calculateAverageRatingForDish() {
+&nbsp;        try {
+<b class="nc">&nbsp;            String dishName = console.getString(&quot;Ingrese el nombre del plato: &quot;);</b>
+<b class="nc">&nbsp;            double averageRating = calculateAverageRatingService.calculateAverageRatingForDish(dishName);</b>
+<b class="nc">&nbsp;            System.out.println(&quot;Calificación promedio para el plato &quot; + dishName + &quot;: &quot; + averageRating);</b>
+&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;            System.out.println(&quot;Error al calcular la calificación promedio: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void calculateAverageRatingForRestaurant() {
+&nbsp;        try {
+<b class="nc">&nbsp;            String restaurantName = console.getString(&quot;Ingrese el nombre del restaurante: &quot;);</b>
+<b class="nc">&nbsp;            double averageRating = calculateAverageRatingService.calculateAverageRatingForRestaurant(restaurantName);</b>
+<b class="nc">&nbsp;            System.out.println(&quot;Calificación promedio para el restaurante &quot; + restaurantName + &quot;: &quot; + averageRating);</b>
+&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;            System.out.println(&quot;Error al calcular la calificación promedio: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-30 13:15</div>
+</div>
+</body>
+</html>

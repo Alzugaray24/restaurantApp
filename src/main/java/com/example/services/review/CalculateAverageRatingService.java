@@ -18,7 +18,7 @@ public class CalculateAverageRatingService {
     public double calculateAverageRatingForDish(String dishName) {
         Dish dish = dishRepository.findByName(dishName);
         if (dish == null) {
-            throw new IllegalArgumentException("Dish not found.");
+            throw new IllegalArgumentException("El plato no se ha encontrado.");
         }
         return dish.getReviews().stream()
                 .mapToInt(Review::getScore)
@@ -29,7 +29,7 @@ public class CalculateAverageRatingService {
     public double calculateAverageRatingForRestaurant(String restaurantName) {
         Restaurant restaurant = restaurantRepository.findByName(restaurantName);
         if (restaurant == null) {
-            throw new IllegalArgumentException("Restaurant not found.");
+            throw new IllegalArgumentException("Restaurante no encontrado.");
         }
         return restaurant.getReviews().stream()
                 .mapToInt(Review::getScore)

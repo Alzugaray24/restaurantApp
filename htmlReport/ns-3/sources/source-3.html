@@ -1,0 +1,189 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > UpdateDishFromMenuController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.controllers.menu</a>
+</div>
+
+<h1>Coverage Summary for Class: UpdateDishFromMenuController (com.example.controllers.menu)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UpdateDishFromMenuController</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;// src/main/java/com/example/controllers/menu/UpdateDishFromMenuController.java
+&nbsp;package com.example.controllers.menu;
+&nbsp;
+&nbsp;import com.example.models.Dish;
+&nbsp;import com.example.models.Restaurant;
+&nbsp;import com.example.models.Review;
+&nbsp;import com.example.services.menu.UpdateDishFromMenuService;
+&nbsp;import com.example.utils.consoleUtils.ConsoleUtils;
+&nbsp;import com.example.repositories.RestaurantRepository;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public class UpdateDishFromMenuController {
+&nbsp;    private final UpdateDishFromMenuService updateDishFromMenuService;
+&nbsp;    private final ConsoleUtils console;
+&nbsp;    private final RestaurantRepository restaurantRepository;
+&nbsp;
+<b class="nc">&nbsp;    public UpdateDishFromMenuController(UpdateDishFromMenuService updateDishFromMenuService, ConsoleUtils console, RestaurantRepository restaurantRepository) {</b>
+<b class="nc">&nbsp;        this.updateDishFromMenuService = updateDishFromMenuService;</b>
+<b class="nc">&nbsp;        this.console = console;</b>
+<b class="nc">&nbsp;        this.restaurantRepository = restaurantRepository;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void updateDishFromMenu() {
+&nbsp;        try {
+<b class="nc">&nbsp;            Restaurant restaurant = getRestaurant();</b>
+<b class="nc">&nbsp;            if (restaurant == null) return;</b>
+&nbsp;
+<b class="nc">&nbsp;            Dish dish = getDish(restaurant);</b>
+<b class="nc">&nbsp;            if (dish == null) return;</b>
+&nbsp;
+<b class="nc">&nbsp;            Dish updatedDish = getUpdatedDish(dish);</b>
+<b class="nc">&nbsp;            updateDishInMenu(restaurant, updatedDish);</b>
+&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;            System.out.println(&quot;Error al actualizar el plato del menú: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private Restaurant getRestaurant() {
+<b class="nc">&nbsp;        String restaurantName = console.getString(&quot;Ingrese el nombre del restaurante: &quot;);</b>
+<b class="nc">&nbsp;        Restaurant restaurant = restaurantRepository.findByName(restaurantName);</b>
+<b class="nc">&nbsp;        if (restaurant == null) {</b>
+<b class="nc">&nbsp;            System.out.println(&quot;Restaurante no encontrado&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return restaurant;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Dish getDish(Restaurant restaurant) {
+<b class="nc">&nbsp;        String dishName = console.getString(&quot;Ingrese el nombre del plato a actualizar: &quot;);</b>
+<b class="nc">&nbsp;        Dish dish = restaurant.getMenu().getDishes().stream()</b>
+<b class="nc">&nbsp;                .filter(d -&gt; d.getName().equals(dishName))</b>
+<b class="nc">&nbsp;                .findFirst()</b>
+<b class="nc">&nbsp;                .orElse(null);</b>
+<b class="nc">&nbsp;        if (dish == null) {</b>
+<b class="nc">&nbsp;            System.out.println(&quot;Plato no encontrado en el menú&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return dish;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Dish getUpdatedDish(Dish dish) {
+<b class="nc">&nbsp;        String newDescription = console.getString(&quot;Ingrese la nueva descripción del plato: &quot;);</b>
+<b class="nc">&nbsp;        double newPrice = console.getDouble(&quot;Ingrese el nuevo precio del plato: &quot;);</b>
+<b class="nc">&nbsp;        List&lt;Review&gt; existingReviews = dish.getReviews();</b>
+<b class="nc">&nbsp;        return new Dish(dish.getName(), newDescription, newPrice, existingReviews);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void updateDishInMenu(Restaurant restaurant, Dish updatedDish) {
+<b class="nc">&nbsp;        updateDishFromMenuService.setRestaurant(restaurant);</b>
+<b class="nc">&nbsp;        updateDishFromMenuService.setUpdatedDish(updatedDish);</b>
+<b class="nc">&nbsp;        updateDishFromMenuService.execute();</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Plato actualizado en el menú&quot;);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-30 13:15</div>
+</div>
+</body>
+</html>

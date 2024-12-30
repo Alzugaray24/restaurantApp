@@ -1,6 +1,7 @@
 package com.example.repositories;
 
 import com.example.models.Restaurant;
+import com.example.models.Review;
 
 import java.util.LinkedList;
 import java.util.List;

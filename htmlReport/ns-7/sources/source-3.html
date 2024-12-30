@@ -1,0 +1,202 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Restaurant</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.models</a>
+</div>
+
+<h1>Coverage Summary for Class: Restaurant (com.example.models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Restaurant</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    10%
+  </span>
+  <span class="absValue">
+    (2/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    26,3%
+  </span>
+  <span class="absValue">
+    (10/38)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.models;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public class Restaurant {
+&nbsp;    private String name;
+&nbsp;    private String phone;
+&nbsp;    private String adress;
+&nbsp;    private Integer available;
+&nbsp;    private Menu menu;
+&nbsp;    private List&lt;Review&gt; reviews;
+&nbsp;    private Double raiting;
+&nbsp;
+<b class="nc">&nbsp;    public Restaurant() {</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="fc">&nbsp;    public Restaurant(String name, String phone, String adress, Integer available, Menu menu, List&lt;Review&gt; reviews, Double raiting) {</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.phone = phone;</b>
+<b class="fc">&nbsp;        this.adress = adress;</b>
+<b class="fc">&nbsp;        this.available = available;</b>
+<b class="fc">&nbsp;        this.menu = menu;</b>
+<b class="fc">&nbsp;        this.reviews = reviews;</b>
+<b class="fc">&nbsp;        this.raiting = raiting;</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public String getPhone() {
+<b class="nc">&nbsp;        return phone;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setPhone(String phone) {
+<b class="nc">&nbsp;        this.phone = phone;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public String getAdress() {
+<b class="nc">&nbsp;        return adress;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setAdress(String adress) {
+<b class="nc">&nbsp;        this.adress = adress;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public String getName() {
+<b class="fc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setName(String name) {
+<b class="nc">&nbsp;        this.name = name;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public String getDirection() {
+<b class="nc">&nbsp;        return adress;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setDirection(String direction) {
+<b class="nc">&nbsp;        this.adress = direction;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public Integer getAvailable() {
+<b class="nc">&nbsp;        return available;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setAvailable(Integer available) {
+<b class="nc">&nbsp;        this.available = available;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public Menu getMenu() {
+<b class="nc">&nbsp;        return menu;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setMenu(Menu menu) {
+<b class="nc">&nbsp;        this.menu = menu;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public List&lt;Review&gt; getReviews() {
+<b class="nc">&nbsp;        return reviews;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setReviews(List&lt;Review&gt; reviews) {
+<b class="nc">&nbsp;        this.reviews = reviews;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public Double getRaiting() {
+<b class="nc">&nbsp;        return raiting;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRaiting(Double raiting) {
+<b class="nc">&nbsp;        this.raiting = raiting;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public String getAddress() {
+<b class="nc">&nbsp;        return adress;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setAddress(String address) {
+<b class="nc">&nbsp;        this.adress = address;</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-30 13:15</div>
+</div>
+</body>
+</html>

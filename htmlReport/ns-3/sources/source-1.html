@@ -1,0 +1,161 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > AddDishToMenuController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.controllers.menu</a>
+</div>
+
+<h1>Coverage Summary for Class: AddDishToMenuController (com.example.controllers.menu)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AddDishToMenuController</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.controllers.menu;
+&nbsp;
+&nbsp;import com.example.models.Dish;
+&nbsp;import com.example.models.Restaurant;
+&nbsp;import com.example.repositories.RestaurantRepository;
+&nbsp;import com.example.services.menu.AddDishToMenuService;
+&nbsp;import com.example.utils.consoleUtils.ConsoleUtils;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class AddDishToMenuController {
+&nbsp;    private final AddDishToMenuService addDishToMenuService;
+&nbsp;    private final ConsoleUtils console;
+&nbsp;    private final RestaurantRepository restaurantRepository;
+&nbsp;
+<b class="nc">&nbsp;    public AddDishToMenuController(AddDishToMenuService addDishToMenuService, ConsoleUtils console, RestaurantRepository restaurantRepository) {</b>
+<b class="nc">&nbsp;        this.addDishToMenuService = addDishToMenuService;</b>
+<b class="nc">&nbsp;        this.console = console;</b>
+<b class="nc">&nbsp;        this.restaurantRepository = restaurantRepository;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addDishToMenu() {
+&nbsp;        try {
+<b class="nc">&nbsp;            String restaurantName = console.getString(&quot;Ingrese el nombre del restaurante: &quot;);</b>
+<b class="nc">&nbsp;            Restaurant restaurant = restaurantRepository.findByName(restaurantName);</b>
+<b class="nc">&nbsp;            if (restaurant == null) {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;Restaurante no encontrado.&quot;);</b>
+&nbsp;                return;
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            String dishName = console.getString(&quot;Ingrese el nombre del plato: &quot;);</b>
+<b class="nc">&nbsp;            String dishDescription = console.getString(&quot;Ingrese la descripción del plato: &quot;);</b>
+<b class="nc">&nbsp;            double dishPrice = console.getDouble(&quot;Ingrese el precio del plato: &quot;);</b>
+<b class="nc">&nbsp;            Dish dish = new Dish(dishName, dishDescription, dishPrice, new ArrayList&lt;&gt;());</b>
+&nbsp;
+<b class="nc">&nbsp;            addDishToMenuService.setRestaurant(restaurant);</b>
+<b class="nc">&nbsp;            addDishToMenuService.setDish(dish);</b>
+<b class="nc">&nbsp;            addDishToMenuService.execute();</b>
+&nbsp;
+<b class="nc">&nbsp;            System.out.println(&quot;Plato agregado al menú: &quot;);</b>
+&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;            System.out.println(&quot;Error al agregar el plato al menú: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-30 13:15</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > UpdateDishFromMenuService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.services.menu</a>
+</div>
+
+<h1>Coverage Summary for Class: UpdateDishFromMenuService (com.example.services.menu)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UpdateDishFromMenuService</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.services.menu;
+&nbsp;
+&nbsp;import com.example.models.Dish;
+&nbsp;import com.example.models.Menu;
+&nbsp;import com.example.models.Restaurant;
+&nbsp;import com.example.repositories.MenuRepository;
+&nbsp;import com.example.services.interfaces.ICommand;
+&nbsp;
+&nbsp;public class UpdateDishFromMenuService implements ICommand&lt;Void&gt; {
+&nbsp;    private final MenuRepository menuRepository;
+&nbsp;    private Restaurant restaurant;
+&nbsp;    private Dish updatedDish;
+&nbsp;
+<b class="nc">&nbsp;    public UpdateDishFromMenuService(MenuRepository menuRepository) {</b>
+<b class="nc">&nbsp;        this.menuRepository = menuRepository;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRestaurant(Restaurant restaurant) {
+<b class="nc">&nbsp;        this.restaurant = restaurant;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setUpdatedDish(Dish updatedDish) {
+<b class="nc">&nbsp;        this.updatedDish = updatedDish;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void execute() {
+<b class="nc">&nbsp;        if (restaurant == null || updatedDish == null) {</b>
+<b class="nc">&nbsp;            throw new IllegalStateException(&quot;El restaurante y el plato no pueden ser nulos&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        Menu menu = menuRepository.getMenuByRestaurant(restaurant);</b>
+<b class="nc">&nbsp;        if (menu != null) {</b>
+<b class="nc">&nbsp;            for (Dish dish : menu.getDishes()) {</b>
+<b class="nc">&nbsp;                if (dish.getName().equals(updatedDish.getName())) {</b>
+<b class="nc">&nbsp;                    dish.setDescription(updatedDish.getDescription());</b>
+<b class="nc">&nbsp;                    dish.setPrice(updatedDish.getPrice());</b>
+<b class="nc">&nbsp;                    dish.setReviews(updatedDish.getReviews());</b>
+&nbsp;                    break;
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-30 13:15</div>
+</div>
+</body>
+</html>

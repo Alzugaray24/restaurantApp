@@ -3,7 +3,7 @@ package com.example.factories;
 import com.example.models.Restaurant;
 import com.example.models.Review;
 
-public class RestaurantReviewFactory implements ReviewFactory {
+public class RestaurantReviewFactory implements IReviewFactory {
     private Restaurant restaurant;
 
     public RestaurantReviewFactory(Restaurant restaurant) {
